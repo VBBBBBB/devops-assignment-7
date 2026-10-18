@@ -22,7 +22,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building application...'
-                sh 'python3 -m pip install --upgrade pip'
+                sh 'python3 -m pip install --upgrade pip --ignore-installed'
                 sh 'python3 -m pip install -r requirements.txt'
                 sh 'python3 -m compileall app.py'
                 echo 'Build stage completed successfully.'
