@@ -19,15 +19,16 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                echo 'Building application...'
-                sh 'python3 -m pip install --upgrade pip --ignore-installed'
-                sh 'python3 -m pip install -r requirements.txt'
-                sh 'python3 -m compileall app.py'
-                echo 'Build stage completed successfully.'
-            }
-        }
+        
+stage('Build') {
+    steps {
+        echo 'Building application...'
+        sh 'python3 -m pip install --user -r requirements.txt'
+        sh 'python3 -m compileall app.py'
+        echo 'Build stage completed successfully.'
+    }
+}
+
 
         stage('Test') {
             steps {
